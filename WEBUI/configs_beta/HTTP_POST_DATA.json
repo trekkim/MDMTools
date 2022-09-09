@@ -1,0 +1,1 @@
+{  "payload": {    "command_uuid": "",    "command": {      "request_type": "DeviceLock",      "pin": "123456"    }  }}

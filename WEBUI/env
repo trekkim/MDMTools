@@ -1,0 +1,7 @@
+# the value of the -api-key flag that MicroMDM was started with.
+
+#export API_TOKEN=yoursecret
+#export SERVER_URL=https://yourdomain2.yourdomain.com
+
+export API_TOKEN=yoursecret
+export SERVER_URL=https://yourdomain1.yourdomain.com

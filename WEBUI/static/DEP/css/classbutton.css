@@ -1,0 +1,4 @@
+.push_app:active, .active {
+    background-color:red;
+    color: white;
+}

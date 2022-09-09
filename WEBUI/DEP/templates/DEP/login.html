@@ -1,0 +1,106 @@
+{% block main %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="static/DEP/css/styles.css" type="text/css">
+   <link rel="icon" type="image/png" href="static/DEP/Login/images/icons/favicon.ico" sizes="32x32"/>
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="static/DEP/Login/css/util.css">
+   <link rel="stylesheet" type="text/css" href="static/DEP/Login/css/main.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<script src="static/DEP/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="static/DEP/Login/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/DEP/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/DEP/Login/vendor/select2/select2.min.js"></script>
+	<script src="static/DEP/Login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="static/DEP/Login/js/main.js"></script>
+
+</head>
+<style>
+   body, html {
+     height: 100%;
+     margin: 0;
+   }
+   
+   .bg {
+     /* The image used */
+     background-image: url("static/DEP/Bootstrap4/img/bg-01.jpg");
+   
+     /* Full height */
+     height: 100%; 
+   
+     /* Center and scale the image nicely */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+   }
+</style>
+<body>
+
+<div class="limiter">
+<div class="container-login100 bg">
+<div class="wrap-login100">
+   
+      <form class="login100-form" action="/login" method="POST">
+         {% csrf_token %}
+         {% if next %}
+         <input type="hidden" name="next" value="{{ next }}" />
+         {% endif %}
+         <div class="main">
+            <div class="section-screen">
+               <div class="section-title">
+                  <img class="img-fluid" src="static/DEP/Bootstrap4/img/Artboard-3-400x200.png"></img>
+                  <span class="login100-form-title"></span>
+	            </div>
+               {% if first_attempt is True %}
+               <div class="section-form  wrap-input100">
+                  <div class="wrap-input100 control-group">
+                     <input class="input100" type="text" value="" placeholder="Username" name="username">
+                     <span class="focus-input100"></span>
+                     <span class="symbol-input100"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="wrap-input100 control-group">
+                     <input class="input100" type="password" value="" placeholder="Password" name="password">
+                     <span class="focus-input100"></span>
+                     <span class="symbol-input100"><i class="fa fa-lock" aria-hidden="true"></i></span>
+		            </div>
+                     <input type="submit" value="Log in" class="login100-form-btn" >
+                     <br>
+                     <img class="img-fluid" src="static/DEP/Bootstrap4/img/Login_Botton_Logo.png"></img>
+               </div>
+                  {% elif first_attempt is False %}
+                  <div class="section-form wrap-input100">
+                     <div class="control-group wrap-input100">
+                        <input class="input100" type="text" value="" placeholder="Username" name="username" class="redtext">
+                     </div>
+                     
+                     <div class="control-group wrap-input100">
+                        <input class="input100" type="password" value="" placeholder="Password" name="password" class="redtext">
+                     </div>
+                        <p class="redtext">Wrong username or password</p>
+                        <input type="submit" value="Log in" class="login100-form-btn" >
+                        
+                        <br>
+		            </div>
+               {% endif %}
+            </div>
+         </div>
+      </form>
+      </div>
+      </div>
+      </div>
+   </body>
+</html>
+{% endblock %}
+
