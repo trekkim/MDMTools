@@ -1,3 +1,5 @@
+# MDMTools
+
 DEP Tool
 =================
 
@@ -22,9 +24,10 @@ Setting up
 
 # Important  : check in all location for YOURDOMAIN text and replace with your, before you start :
 
+rename all within a code "youraccount" or filw's name in project to your username 
 view.py
-HTML in DEP/templates/
-Scripts/
+HTML in DEP/templates/*.html
+Scripts/*.sh
 
 /home/youraccount/DEP_tool/upload/ = you can use your on path just make changes in code.
 
@@ -56,31 +59,16 @@ Scripts/
    * https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
 
 
-Adding new "button functionality" to main view
+Adding new "functionality" to main view
 =================
 
 Currently it is implemented in way that api calls are directed to /modular url. There is an "method" POST paramd which defines method which will be run on the server. If you need to add new button running command similiar to systemctl or journactl you just need to following actions:
 
-1. Add new form to DEP/templates/DEP/main.html.
-   ```html
-   <form action="/modular" method="POST" class="modular_form" id='NEW_METHOD_NAME'>
-       <input type="submit" value="anything" class="login100-form-btn">
-   </form>
-   ```
-2. Add new record to modular_list in DEP/views.py.
-   ```python
-   modular_list = [
-           {"method": "journalctl_micromdm_service",
-            "command": "journalctl -u micromdm.service -n 100 --no-pager",
-            "expected_result": "Logs begin at"},
-           {"method": "systemctl_status_micromdm_service",
-            "command": "systemctl status micromdm.service --no-pager",
-            "expected_result": "micromdm.service - MicroMDM MDM Server"},
-           {"method": "NEW_METHOD_NAME",
-            "command": "ls -la /home/youraccount",
-            "expected_result": ".bashrc"},
-       ]
-   ```
+1. Add new form to DEP/templates/DEP/main.html
+2. Add new script with path to DEP/settings.py
+3. Add new MDM API function in DEP/views.py
+4. Add JAVA script in DEP/static/DEP/js 
+5. Add images in DEP/static/DEP/Bootstra4/img  
 
 Permissions
 =================
