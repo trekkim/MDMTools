@@ -243,7 +243,7 @@ if not os.path.exists(TRAFIC_DATA):
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xujs+pit_xa6roomp#m2=%y#*u48gi^)ag$p$@^0%8swc=%d5t'
+SECRET_KEY = '....your secret key ....'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
