@@ -1,8 +1,8 @@
-# MDMTools
+# MDMTools 
 
 DEP Tool
 =================
-
+"Without AAD Auth"
 This Django project provides a custom webapp interface to micromd service (https://github.com/micromdm/micromdm). It handles adding and removing records in .json record file, applying configuration and generally running a couple of defined commands.
 
 This project is still under development and not everything works
